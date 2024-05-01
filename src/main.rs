@@ -2,30 +2,27 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn cockroach_speed(s: f64) -> i64 {
-    // let km_per_hour = s;
-    // let cm_per_hour = km_per_hour * 100000f64;
-    // let cm_per_second = cm_per_hour / 3600f64;
-
-    return (s * 100000f64 / 3600f64) as i64;
-
-    // return cm_per_second as i64;
+fn double_char(s: &str) -> String {
+    unimplemented!()
 }
 
 
 #[cfg(test)]
-mod sample_tests {
-    use super::cockroach_speed;
+mod tests {
+    use super::double_char;
+
+    fn dotest(s: &str, expected: &str) {
+        let actual = double_char(s);
+        assert_eq!(actual, expected, "With s = \"{s}\"\nExpected \"{expected}\" but got \"{actual}\"")
+    }
 
     #[test]
-    fn basic_tests() {
-        test(1.08, 30);
-        test(1.09, 30);
-        test(0.0, 0);
+    fn test_hello_world() {
+        dotest("Hello World", "HHeelllloo  WWoorrlldd")
     }
-
-    fn test(speed: f64, expected: i64) {
-        let actual = cockroach_speed(speed);
-        assert_eq!(actual, expected, "\nYour result (left) did not match the expected result (right) for the speed {speed}");
+    #[test]
+    fn test_numbers() {
+        dotest("1234!_ ", "11223344!!__  ")
     }
 }
+
