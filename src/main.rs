@@ -3,7 +3,15 @@ fn main() {
 }
 
 fn double_char(s: &str) -> String {
-    unimplemented!()
+
+   let split_text_by_sign: Vec<&str> =  s.split("").collect();
+
+    let mut double_sign_text: String = "".to_string();
+    for sign in split_text_by_sign{
+        double_sign_text += &*(sign.to_owned() + sign);
+    }
+
+    return double_sign_text;
 }
 
 
