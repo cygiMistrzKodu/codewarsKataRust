@@ -3,7 +3,16 @@ fn main() {
 }
 
 fn count_positives_sum_negatives(input: Vec<i32>) -> Vec<i32> {
-    todo!()
+
+    if input.is_empty() {
+        return vec![];
+    }
+
+    let sum_of_negative = input.iter().filter( |&&x| x < 0).sum();
+    let count_of_positive = input.iter().filter( |&&x| x > 0).count() as i32;
+
+
+    return vec![count_of_positive,sum_of_negative]
 }
 
 
