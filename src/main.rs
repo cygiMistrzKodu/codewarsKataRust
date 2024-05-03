@@ -2,35 +2,30 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn double_char(s: &str) -> String {
-
-   let split_text_by_sign: Vec<&str> =  s.split("").collect();
-
-    let mut double_sign_text: String = "".to_string();
-    for sign in split_text_by_sign{
-        double_sign_text += &*(sign.to_owned() + sign);
-    }
-
-    return double_sign_text;
+fn count_positives_sum_negatives(input: Vec<i32>) -> Vec<i32> {
+    todo!()
 }
 
 
 #[cfg(test)]
 mod tests {
-    use super::double_char;
+    use super::count_positives_sum_negatives;
 
-    fn dotest(s: &str, expected: &str) {
-        let actual = double_char(s);
-        assert_eq!(actual, expected, "With s = \"{s}\"\nExpected \"{expected}\" but got \"{actual}\"")
-    }
-
-    #[test]
-    fn test_hello_world() {
-        dotest("Hello World", "HHeelllloo  WWoorrlldd")
+    fn dotest(a: &[i32], expected: &[i32]) {
+        let actual = count_positives_sum_negatives(a.to_vec());
+        assert_eq!(actual, expected, "With input = {a:?}\nExpected {expected:?} but got {actual:?}")
     }
     #[test]
-    fn test_numbers() {
-        dotest("1234!_ ", "11223344!!__  ")
+    fn fixed_tests() {
+        dotest(&[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], &[10, -65]);
+        dotest(&[], &[]);
+        dotest(&[0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14], &[8, -50]);
+        dotest(&[0,1,2,3,4,5], &[5, 0]);
+        dotest(&[1,2,3,4,5], &[5, 0]);
+        dotest(&[0,-1,-2,-3,-4,-5], &[0, -15]);
+        dotest(&[-1,-2,-3,-4,-5], &[0, -15]);
+        dotest(&[0,0,0,0], &[0,0]);
+        dotest(&[0], &[0,0]);
     }
 }
 
