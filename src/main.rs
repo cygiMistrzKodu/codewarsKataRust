@@ -3,7 +3,11 @@ fn main() {
 }
 
 fn set_alarm(employed: bool, vacation: bool) -> bool {
-    todo!();
+    return if employed == true && vacation == false {
+        true
+    } else {
+        false
+    };
 }
 
 #[cfg(test)]
