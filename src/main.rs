@@ -2,24 +2,25 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn set_alarm(employed: bool, vacation: bool) -> bool {
-    return if employed == true && vacation == false {
-        true
-    } else {
-        false
-    };
+fn string_to_array(s: &str) -> Vec<String> {
+    todo!()
 }
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::string_to_array;
+
+    fn dotest(s: &str, expected: &[&str]) {
+        let actual = string_to_array(s);
+        assert!(actual == expected, "Test failed with s = \"{s}\"\nExpected {expected:?} but got {actual:?}")
+    }
 
     #[test]
-    fn test_set_alarm() {
-        assert_eq!(set_alarm(true, true), false, "Fails when input is true, true");
-        assert_eq!(set_alarm(false, true), false, "Fails when input is false, true");
-        assert_eq!(set_alarm(false, false), false, "Fails when input is false, false");
-        assert_eq!(set_alarm(true, false), true, "Fails when input is true, false");
+    fn fixed_tests() {
+        dotest("Robin Singh", &["Robin", "Singh"]);
+        dotest("CodeWars", &["CodeWars"]);
+        dotest("I love arrays they are my favorite", &["I", "love", "arrays", "they", "are", "my", "favorite"]);
+        dotest("1 2 3", &["1", "2", "3"]);
     }
 }
 
