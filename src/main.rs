@@ -2,25 +2,19 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn string_to_array(s: &str) -> Vec<String> {
-    return s.split(" ").map(|v| v.to_string()).collect();
+fn invert(values: &[i32]) -> Vec<i32> {
+    todo!();
 }
 
 #[cfg(test)]
 mod tests {
-    use super::string_to_array;
-
-    fn dotest(s: &str, expected: &[&str]) {
-        let actual = string_to_array(s);
-        assert_eq!(actual, expected, "Test failed with s = \"{s}\"\nExpected {expected:?} but got {actual:?}")
-    }
+    use super::invert;
 
     #[test]
-    fn fixed_tests() {
-        dotest("Robin Singh", &["Robin", "Singh"]);
-        dotest("CodeWars", &["CodeWars"]);
-        dotest("I love arrays they are my favorite", &["I", "love", "arrays", "they", "are", "my", "favorite"]);
-        dotest("1 2 3", &["1", "2", "3"]);
+    fn basic_tests() {
+        assert_eq!(invert(&vec![1,2,3,4,5]), vec![-1,-2,-3,-4,-5]);
+        assert_eq!(invert(&vec![1,-2,3,-4,5]), vec![-1,2,-3,4,-5]);
+        assert_eq!(invert(&vec![]), vec![]);
     }
 }
 
