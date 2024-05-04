@@ -3,7 +3,7 @@ fn main() {
 }
 
 fn string_to_array(s: &str) -> Vec<String> {
-    todo!()
+    return s.split(" ").map(|v| v.to_string()).collect();
 }
 
 #[cfg(test)]
@@ -12,7 +12,7 @@ mod tests {
 
     fn dotest(s: &str, expected: &[&str]) {
         let actual = string_to_array(s);
-        assert!(actual == expected, "Test failed with s = \"{s}\"\nExpected {expected:?} but got {actual:?}")
+        assert_eq!(actual, expected, "Test failed with s = \"{s}\"\nExpected {expected:?} but got {actual:?}")
     }
 
     #[test]
