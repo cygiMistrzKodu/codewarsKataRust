@@ -3,7 +3,17 @@ fn main() {
 }
 
 fn reverse_seq(n: u32) -> Vec<u32> {
-    unimplemented!();
+
+    let mut number = n;
+    let mut numbers = Vec::new();
+    loop {
+        numbers.push(number);
+        number -= 1;
+        if number <= 0 {
+            break;
+        }
+    }
+    return numbers;
 }
 
 #[cfg(test)]
