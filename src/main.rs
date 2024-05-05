@@ -3,8 +3,9 @@ fn main() {
 }
 
 fn add_binary(a: u64, b: u64) -> String {
-    todo!()
+    return format!("{:b}", a + b);
 }
+
 #[cfg(test)]
 mod tests {
     use super::add_binary;
@@ -16,11 +17,11 @@ mod tests {
 
     #[test]
     fn sample_tests() {
-        dotest(1,1,"10");
-        dotest(0,1,"1");
-        dotest(1,0,"1");
-        dotest(2,2,"100");
-        dotest(51,12,"111111");
+        dotest(1, 1, "10");
+        dotest(0, 1, "1");
+        dotest(1, 0, "1");
+        dotest(2, 2, "100");
+        dotest(51, 12, "111111");
     }
 }
 
