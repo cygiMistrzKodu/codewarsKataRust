@@ -3,7 +3,22 @@ fn main() {
 }
 
 fn points(games: &[String]) -> u32 {
-    todo!()
+    let mut our_points = 0;
+    games.iter().for_each(|game_result| {
+        let scores: Vec<&str> = game_result.split(":").collect();
+        let our_result: u32 = scores[0].parse().unwrap();
+        let opposite_result: u32 = scores[1].parse().unwrap();
+
+        if our_result > opposite_result {
+            our_points += 3;
+        }
+
+        if our_result == opposite_result {
+            our_points += 1;
+        }
+    });
+
+    return our_points;
 }
 
 #[cfg(test)]
