@@ -3,7 +3,7 @@ fn main() {
 }
 
 fn greet(name: &str) -> String {
-    todo!()
+    return format!("Hello, {name} how are you doing today?");
 }
 
 #[cfg(test)]
