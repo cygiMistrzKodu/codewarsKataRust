@@ -2,8 +2,8 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn greet(name: &str) -> String {
-    return format!("Hello, {name} how are you doing today?");
+fn reverse_seq(n: u32) -> Vec<u32> {
+    unimplemented!();
 }
 
 #[cfg(test)]
@@ -11,12 +11,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn basic_tests() {
-        assert_eq!(greet("Ryan"), "Hello, Ryan how are you doing today?");
-        assert_eq!(
-            greet("Shingles"),
-            "Hello, Shingles how are you doing today?"
-        );
+    fn sample_test() {
+        assert_eq!(reverse_seq(5), [5, 4, 3, 2, 1].to_vec());
     }
 }
 
