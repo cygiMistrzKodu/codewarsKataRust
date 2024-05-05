@@ -2,43 +2,25 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn points(games: &[String]) -> u32 {
-    let mut our_points = 0;
-    games.iter().for_each(|game_result| {
-        let scores: Vec<&str> = game_result.split(":").collect();
-        let our_result: u32 = scores[0].parse().unwrap();
-        let opposite_result: u32 = scores[1].parse().unwrap();
-
-        if our_result > opposite_result {
-            our_points += 3;
-        }
-
-        if our_result == opposite_result {
-            our_points += 1;
-        }
-    });
-
-    return our_points;
+fn add_binary(a: u64, b: u64) -> String {
+    todo!()
 }
-
 #[cfg(test)]
 mod tests {
-    use super::points;
+    use super::add_binary;
 
-    const ERR_MSG: &str = "\nYour result (left) did not match the expected output (right)";
-
-    fn do_fixed_test(e: &[&str], expected: u32) {
-        let a = &e.iter().map(|x| x.to_string()).collect::<Vec<_>>();
-        assert_eq!(points(a), expected, "{ERR_MSG} with games = {a:?}")
+    fn dotest(a: u64, b: u64, expected: &str) {
+        let actual = add_binary(a, b);
+        assert_eq!(actual, expected, "With a = {a}, b = {b}\nExpected \"{expected}\" but got \"{actual}\"")
     }
 
     #[test]
-    fn fixed_tests() {
-        do_fixed_test(&["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"], 30);
-        do_fixed_test(&["1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"], 10);
-        do_fixed_test(&["0:1", "0:2", "0:3", "0:4", "1:2", "1:3", "1:4", "2:3", "2:4", "3:4"], 0);
-        do_fixed_test(&["1:0", "2:0", "3:0", "4:0", "2:1", "1:3", "1:4", "2:3", "2:4", "3:4"], 15);
-        do_fixed_test(&["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:4"], 12);
+    fn sample_tests() {
+        dotest(1,1,"10");
+        dotest(0,1,"1");
+        dotest(1,0,"1");
+        dotest(2,2,"100");
+        dotest(51,12,"111111");
     }
 }
 
