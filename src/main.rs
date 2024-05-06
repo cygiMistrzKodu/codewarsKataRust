@@ -3,7 +3,18 @@ fn main() {
 }
 
 fn series_sum(n: u32) -> String {
-    todo!()
+    if n == 0 {
+        return "0.00".to_string();
+    }
+
+    let mut sum_of_series: f64 = 1f64;
+    let mut divider: f64 = 4f64;
+    for _index in 0..n - 1 {
+        sum_of_series = sum_of_series + 1f64 / divider;
+        divider += 3f64;
+    }
+
+    return format!("{:.2}", sum_of_series);
 }
 
 #[cfg(test)]
@@ -12,7 +23,7 @@ mod tests {
 
     fn test(input: u32, expected: &str) {
         let actual = series_sum(input);
-        assert!(actual == expected, "Expected series_sum({input}) to be {expected}, but was {actual}");
+        assert_eq!(actual, expected, "Expected series_sum({input}) to be {expected}, but was {actual}");
     }
 
     #[test]
