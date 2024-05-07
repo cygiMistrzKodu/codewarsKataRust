@@ -1,10 +1,17 @@
+use std::collections::HashMap;
+
 fn main() {
     println!("Hello, world!");
 }
 
 fn update_light(current: &str) -> String {
-    // Code goes here..
-    return "".to_string();
+    let traffic_light_change_map = HashMap::from([
+        ("green", "yellow"),
+        ("yellow", "red"),
+        ("red", "green"),
+    ]);
+
+    return traffic_light_change_map.get(current).unwrap().to_string();
 }
 
 
