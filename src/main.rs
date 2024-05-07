@@ -4,22 +4,24 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn update_light(current: &str) -> String {
-    let traffic_light_change_map = HashMap::from([
-        ("green", "yellow"),
-        ("yellow", "red"),
-        ("red", "green"),
-    ]);
-
-    return traffic_light_change_map.get(current).unwrap().to_string();
+fn other_angle(a: u32, b: u32) -> u32 {
+    // insert code here
+    return 0;
 }
 
 
-#[test]
-fn basic_test() {
-    assert_eq!(update_light("green"), "yellow");
-    assert_eq!(update_light("yellow"), "red");
-    assert_eq!(update_light("red"), "green");
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn example_tests() {
+        assert_eq!(other_angle(30, 60), 90);
+        assert_eq!(other_angle(60, 60), 60);
+        assert_eq!(other_angle(43, 78), 59);
+        assert_eq!(other_angle(10, 20), 150);
+    }
 }
+
 
 
