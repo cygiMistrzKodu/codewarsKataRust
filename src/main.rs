@@ -3,9 +3,7 @@ fn main() {
 }
 
 fn past(h: i32, m: i32, s: i32) -> i32 {
-
-    // your code here
-    return 0;
+    return (h * 3600 + m * 60 + s) * 1000;
 }
 
 
