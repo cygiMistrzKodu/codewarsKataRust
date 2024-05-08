@@ -1,25 +1,22 @@
-use std::collections::HashMap;
 
 fn main() {
     println!("Hello, world!");
 }
 
-fn other_angle(a: u32, b: u32) -> u32 {
-    // insert code here
-    return 0;
+fn make_negative(n: i32) -> i32 {
+    todo!()
 }
 
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::make_negative;
 
     #[test]
-    fn example_tests() {
-        assert_eq!(other_angle(30, 60), 90);
-        assert_eq!(other_angle(60, 60), 60);
-        assert_eq!(other_angle(43, 78), 59);
-        assert_eq!(other_angle(10, 20), 150);
+    fn sample_tests() {
+        assert_eq!(make_negative(1), -1);
+        assert_eq!(make_negative(-5), -5);
+        assert_eq!(make_negative(0), 0);
     }
 }
 
