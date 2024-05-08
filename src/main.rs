@@ -4,7 +4,11 @@ fn main() {
 }
 
 fn make_negative(n: i32) -> i32 {
-    todo!()
+    return if n < 0 {
+        n
+    } else {
+        n * -1
+    }
 }
 
 
