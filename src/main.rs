@@ -5,7 +5,14 @@ fn main() {
 
 fn feast(beast: &str, dish: &str) -> bool {
 
-    todo!()
+    let first_beast_letter = beast.chars().nth(0).unwrap();
+    let last_beast_letter = beast.chars().nth(beast.len() - 1).unwrap();
+
+   if dish.starts_with(first_beast_letter) && dish.ends_with(last_beast_letter) {
+       return true;
+   }
+
+    return false;
 }
 
 
