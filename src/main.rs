@@ -1,12 +1,40 @@
 use either::Either;
+use std::mem;
+
 
 fn main() {
     println!("Hello, world!");
 }
 
+// Solution 1
+// fn sum_mix(arr: &[Either<i32, String>]) -> i32 {
+//
+//     arr.iter().cloned().map(|e| e.left_or_else(|x| x.parse::<i32>().unwrap())).sum()
+// }
+
+// Solution 2
 fn sum_mix(arr: &[Either<i32, String>]) -> i32 {
-    todo!()
+    let mut result = 0;
+    for element in arr {
+        match element {
+            Either::Left(x) => result += x,
+            Either::Right(x) => result += x.parse::<i32>().unwrap(),
+        }
+    }
+    result
+
 }
+
+// Solution 3
+// fn sum_mix(arr: &[Either<i32, String>]) -> i32 {
+//     arr
+//         .iter()
+//         .map(|n| match n {
+//             Either::Left(m) => *m,
+//             Either::Right(m) => m.parse().unwrap(),
+//         })
+//         .sum()
+// }
 
 #[cfg(test)]
 mod tests {
@@ -15,7 +43,7 @@ mod tests {
 
     fn dotest(arr: &[Either<i32, String>], expected: i32) {
         let actual = sum_mix(arr);
-        assert!(actual == expected, "With arr = {arr:?}\nExpected {expected} but got {actual}")
+        assert_eq!(actual, expected, "With arr = {arr:?}\nExpected {expected} but got {actual}")
     }
 
     #[test]
