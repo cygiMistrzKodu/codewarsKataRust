@@ -1,13 +1,15 @@
-use either::Either;
-use std::mem;
-
 
 fn main() {
     println!("Hello, world!");
 }
 
 fn enough(cap: i32, on: i32, wait: i32) -> i32 {
-    todo!();
+    let free_space_in_bus = cap - on;
+    let people_cant_take = wait - free_space_in_bus;
+
+    return if people_cant_take > 0 {
+        people_cant_take
+    } else { 0 };
 }
 
 
