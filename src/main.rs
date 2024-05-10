@@ -3,24 +3,27 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn feast(beast: &str, dish: &str) -> bool {
+fn number_to_string(i: i32) -> String {
 
-    let first_beast_letter = beast.chars().nth(0).unwrap();
-    let last_beast_letter = beast.chars().nth(beast.len() - 1).unwrap();
-
-   if dish.starts_with(first_beast_letter) && dish.ends_with(last_beast_letter) {
-       return true;
-   }
-
-    return false;
 }
 
 
-#[test]
-fn sample_test_cases() {
-    assert_eq!(feast("great blue heron", "garlic naan"), true);
-    assert_eq!(feast("chickadee", "chocolate cake"), true);
-    assert_eq!(feast("brown bear", "bear claw"), false);
+#[cfg(test)]
+mod tests {
+    use super::number_to_string;
+
+    fn dotest(n: i32, expected: &str) {
+        let actual = number_to_string(n);
+        assert_eq!(actual, expected, "With n = {n}\nExpected \"{expected}\" but got \"{actual}\"")
+    }
+
+    #[test]
+    fn fixed_tests() {
+        dotest(67, "67");
+        dotest(79585, "79585");
+        dotest(1+2, "3");
+        dotest(1-2, "-1");
+    }
 }
 
 
