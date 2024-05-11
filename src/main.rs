@@ -2,26 +2,25 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn descending_order(x: u64) -> u64 {
-    let number_int_string = x.to_string();
-    let mut chars: Vec<char> = number_int_string.chars().collect();
-    chars.sort_by(|a, b| b.cmp(a));
-
-    let sorted_by_digits_string = chars.into_iter().collect::<String>();
-
-    return sorted_by_digits_string.parse::<u64>().unwrap();
+fn goals(la_liga_goals: i32, champions_league_goals: i32, copa_del_rey_goals: i32) -> i32 {
+    todo!()
 }
 
 
-#[test]
-fn returns_expected() {
-    assert_eq!(descending_order(0), 0);
-    assert_eq!(descending_order(1), 1);
-    assert_eq!(descending_order(15), 51);
-    assert_eq!(descending_order(1021), 2110);
-    assert_eq!(descending_order(123456789), 987654321);
-    assert_eq!(descending_order(145263), 654321);
-    assert_eq!(descending_order(1254859723), 9875543221);
+#[cfg(test)]
+mod tests {
+    use super::goals;
+
+    fn dotest(a: i32, b: i32, c: i32, expected: i32) {
+        let actual = goals(a, b, c);
+        assert_eq!(actual, expected, "With la_liga_goals = {a}, champions_league_goals = {b}, copa_del_rey_goals = {c}\nExpected {expected} but got {actual}")
+    }
+
+    #[test]
+    fn test_goals() {
+        dotest(0, 0, 0, 0);
+        dotest(43, 10, 5, 58);
+    }
 }
 
 
