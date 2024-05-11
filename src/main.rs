@@ -3,7 +3,13 @@ fn main() {
 }
 
 fn descending_order(x: u64) -> u64 {
-    unimplemented!()
+    let number_int_string = x.to_string();
+    let mut chars: Vec<char> = number_int_string.chars().collect();
+    chars.sort_by(|a, b| b.cmp(a));
+
+    let sorted_by_digits_string = chars.into_iter().collect::<String>();
+
+    return sorted_by_digits_string.parse::<u64>().unwrap();
 }
 
 
