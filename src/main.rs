@@ -5,7 +5,7 @@ fn main() {
 fn powers_of_two(n: u8) -> Vec<u128> {
     let mut exponentiation_of_2_base = Vec::new();
 
-    for number in 0..n + 1 {
+    for number in 0..=n {
         exponentiation_of_2_base.push(2u128.pow(number as u32));
     }
     return exponentiation_of_2_base;
