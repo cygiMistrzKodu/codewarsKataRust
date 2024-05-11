@@ -2,41 +2,19 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn powers_of_two(n: u8) -> Vec<u128> {
-    let mut exponentiation_of_2_base = Vec::new();
+fn no_space(x : String) -> String{
 
-    for number in 0..=n {
-        exponentiation_of_2_base.push(2u128.pow(number as u32));
-    }
-    return exponentiation_of_2_base;
+    return "".to_string();
 }
 
 
-#[cfg(test)]
-mod tests {
-    use super::powers_of_two;
-
-    fn dotest(n: u8, expected: &[u128]) {
-        let actual = powers_of_two(n);
-        assert_eq!(actual, expected, "With n = {n}\nExpected {expected:?}\nBut got {actual:?}")
-    }
-
-    #[test]
-    fn fixed_for_0() {
-        dotest(0, &[1]);
-    }
-
-    #[test]
-    fn fixed_for_1() {
-        dotest(1, &[1, 2]);
-    }
-
-    #[test]
-    fn fixed_tests() {
-        dotest(0, &[1]);
-        dotest(1, &[1, 2]);
-        dotest(4, &[1, 2, 4, 8, 16]);
-    }
+#[test]
+fn returns_expected() {
+    assert_eq!("8j8mBliB8gimjB8B8jlB", no_space("8 j 8   mBliB8g  imjB8B8  jl  B".to_string()));
+    assert_eq!("88Bifk8hB8BB8BBBB888chl8BhBfd", no_space("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd".to_string()));
+    assert_eq!("8aaaaaddddr", no_space("8aaaaa dddd r     ".to_string()));
+    assert_eq!("jfBmgklf8hg88lbe8", no_space("jfBm  gk lf8hg  88lbe8 ".to_string()));
+    assert_eq!("8jaam", no_space("8j aam".to_string()));
 }
 
 
