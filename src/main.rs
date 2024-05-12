@@ -2,43 +2,45 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn find_short(s: &str) -> u32 {
-
-    let words: Vec<&str> = s.split(" ").into_iter().collect();
-    let mut shortest_word = words.get(0).unwrap_or(&"").chars().count() as u32;
-
-    for word in words {
-        let counted_word = word.chars().count() as u32;
-
-        if counted_word < shortest_word {
-            shortest_word = counted_word;
-        }
-    }
-
-    return shortest_word;
+fn two_sum(numbers: &[i32], target: i32) -> (usize, usize) {
+    todo!()
 }
 
 
 #[cfg(test)]
 mod tests {
-    use super::find_short;
-
-    fn dotest(s: &str, expected: u32) {
-        let actual = find_short(s);
-        assert_eq!(actual, expected, "With s = \"{s}\"\nExpected {expected} but got {actual}")
-    }
+    use super::two_sum;
 
     #[test]
-    fn sample_tests() {
-        dotest("bitcoin take over the world maybe who knows perhaps", 3);
-        dotest("turns out random test cases are easier than writing out basic ones", 3);
-        dotest("lets talk about javascript the best language", 3);
-        dotest("i want to travel the world writing code one day", 1);
-        dotest("Lets all go on holiday somewhere very cold", 2);
-        dotest("Let's travel abroad shall we", 2);
+    fn sample() {
+        do_test(&[1, 2, 3], 4);
+        do_test(&[1234, 5678, 9012], 14690);
+        do_test(&[2, 2, 3], 4);
+    }
+
+    fn do_test(nums: &[i32], sum: i32) {
+        let len = nums.len();
+        let user_tuple = two_sum(nums, sum);
+        assert!(
+            user_tuple.0 < len && user_tuple.1 < len,
+            "\nnumbers: {:?}\ntarget: {}\nresult: {:?}\nresult tuple has an index out of bounds",
+            nums, sum, user_tuple
+        );
+        assert!(
+            user_tuple.0 != user_tuple.1,
+            "\nnumbers: {:?}\ntarget: {}\nresult: {:?}\nresult tuple must have two different indices",
+            nums, sum, user_tuple
+        );
+        let num1 = nums[user_tuple.0];
+        let num2 = nums[user_tuple.1];
+        let user_sum = num1 + num2;
+        assert!(
+            user_sum == sum,
+            "\nnumbers: {:?}\ntarget: {}\nresult: {:?}\nnumber as index {}: {}\nnumber as index {}: {}\nsum of the two numbers: {}\nsum of the two numbers did not equal target",
+            nums, sum, user_tuple, user_tuple.0, num1, user_tuple.1, num2, user_sum
+        )
     }
 }
-
 
 
 
