@@ -3,7 +3,19 @@ fn main() {
 }
 
 fn find_short(s: &str) -> u32 {
-    //your code here
+
+    let words: Vec<&str> = s.split(" ").into_iter().collect();
+    let mut shortest_word = words.get(0).unwrap_or(&"").chars().count() as u32;
+
+    for word in words {
+        let counted_word = word.chars().count() as u32;
+
+        if counted_word < shortest_word {
+            shortest_word = counted_word;
+        }
+    }
+
+    return shortest_word;
 }
 
 
