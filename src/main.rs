@@ -2,24 +2,28 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn goals(la_liga_goals: i32, champions_league_goals: i32, copa_del_rey_goals: i32) -> i32 {
-    return  la_liga_goals + champions_league_goals + copa_del_rey_goals;
+fn find_short(s: &str) -> u32 {
+    //your code here
 }
 
 
 #[cfg(test)]
 mod tests {
-    use super::goals;
+    use super::find_short;
 
-    fn dotest(a: i32, b: i32, c: i32, expected: i32) {
-        let actual = goals(a, b, c);
-        assert_eq!(actual, expected, "With la_liga_goals = {a}, champions_league_goals = {b}, copa_del_rey_goals = {c}\nExpected {expected} but got {actual}")
+    fn dotest(s: &str, expected: u32) {
+        let actual = find_short(s);
+        assert_eq!(actual, expected, "With s = \"{s}\"\nExpected {expected} but got {actual}")
     }
 
     #[test]
-    fn test_goals() {
-        dotest(0, 0, 0, 0);
-        dotest(43, 10, 5, 58);
+    fn sample_tests() {
+        dotest("bitcoin take over the world maybe who knows perhaps", 3);
+        dotest("turns out random test cases are easier than writing out basic ones", 3);
+        dotest("lets talk about javascript the best language", 3);
+        dotest("i want to travel the world writing code one day", 1);
+        dotest("Lets all go on holiday somewhere very cold", 2);
+        dotest("Let's travel abroad shall we", 2);
     }
 }
 
